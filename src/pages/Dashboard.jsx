@@ -96,20 +96,58 @@ function Dashboard() {
   return (
     <div className={`${darkMode ? 'dark' : ''}`}>
       <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white transition-all">
-        <aside className="w-64 bg-indigo-900 text-white p-6 dark:bg-gray-800">
+        <aside className="w-64 bg-indigo-900 text-white p-6 dark:text-black dark:bg-indigo-100 flex flex-col justify-between shadow-lg">
           <div>
-            <h2 className="text-xl font-bold mb-6">Pulse Dashboard</h2>
-             <button onClick={() => setDarkMode(!darkMode)} className='cursor-pointer pb-4'>
-                Mode {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
-             </button>
-            <ul className="space-y-4 text-sm">
-              <li onClick={() => scrollTo(dashboardRef)} className="cursor-pointer hover:text-indigo-300">Dashboard</li>
-              <li onClick={() => scrollTo(teamRef)} className="cursor-pointer hover:text-indigo-300">Team</li>
-              <li onClick={() => scrollTo(tasksRef)} className="cursor-pointer hover:text-indigo-300">Tasks</li>
-              <li onClick={() => scrollTo(reportsRef)} className="cursor-pointer hover:text-indigo-300">Reports</li>
-              <li onClick={() => scrollTo(calendarRef)} className="cursor-pointer hover:text-indigo-300">Calendar</li>
+            <h2
+              className="text-3xl sm:text-4xl md:text-4xl font-extrabold mb-8 tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-500 to-pink-600 dark:to-purple-900 drop-shadow-lg animate-fade-in"
+            >
+              Pulse Dashboard
+            </h2>
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="flex items-center gap-2 px-3 py-2 mb-6 bg-indigo-700 hover:bg-indigo-600 rounded-lg transition-colors duration-200 dark:bg-indigo-400"
+            >
+              {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
+              <span className="text-sm font-medium cursor-pointer">Toggle Mode</span>
+            </button>
+
+            <ul className="space-y-3 text-sm font-medium">
+              <li
+                onClick={() => scrollTo(dashboardRef)}
+                className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-indigo-800 cursor-pointer transition-all"
+              >
+                📊 Dashboard
+              </li>
+              <li
+                onClick={() => scrollTo(teamRef)}
+                className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-indigo-800 cursor-pointer transition-all"
+              >
+                👥 Team
+              </li>
+              <li
+                onClick={() => scrollTo(tasksRef)}
+                className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-indigo-800 cursor-pointer transition-all"
+              >
+                ✅ Tasks
+              </li>
+              <li
+                onClick={() => scrollTo(reportsRef)}
+                className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-indigo-800 cursor-pointer transition-all"
+              >
+                📈 Reports
+              </li>
+              <li
+                onClick={() => scrollTo(calendarRef)}
+                className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-indigo-800 cursor-pointer transition-all"
+              >
+                📅 Calendar
+              </li>
             </ul>
           </div>
+
+          <footer className="text-xs text-gray-300 pt-4 border-t border-indigo-700 dark:text-black">
+            &copy; {new Date().getFullYear()} Tushar Singhal
+          </footer>
         </aside>
 
         <main className="flex-1 p-6 overflow-y-auto space-y-10">
