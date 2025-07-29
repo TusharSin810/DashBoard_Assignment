@@ -1,15 +1,20 @@
 import { createSlice, nanoid} from "@reduxjs/toolkit";
 
-const initialMembers = [
-    {id: nanoid(), name: 'Mohan', status: 'Working', tasks: []},
-    {id: nanoid(), name: 'Rahul', status: 'Meeting', tasks: []},
-    {id: nanoid(), name: 'Aman', status: 'Break', tasks: []},
-]
-
 const membersSlice = createSlice({
     name: 'members',
-    initialState: initialMembers,
+    initialState: [],
     reducers: {
+        setMembers: (state, action) => {
+            return action.payload.map(user => ({
+                id: nanoid(),
+                name: `${user.name.first} ${user.name.last}`,
+                status: 'Offline',
+                tasks: [],
+            }));
+        },
+        addMember: (state, action) => {
+            state.push(action.payload);
+        },
         updateStatus: (state, action) => {
             const member = state.find((m) => m.name === action.payload.name);
             if (member) member.status = action.payload.status;
@@ -30,6 +35,6 @@ const membersSlice = createSlice({
     }
 });
 
-export const {updateProgress, assignTask, updateStatus} = membersSlice.actions;
+export const {addMember, setMembers, updateProgress, assignTask, updateStatus} = membersSlice.actions;
 
 export default membersSlice.reducer;
