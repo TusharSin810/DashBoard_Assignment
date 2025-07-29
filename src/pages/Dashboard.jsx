@@ -9,6 +9,8 @@ import StatusSelector from '../components/StatusSelector';
 import { updateStatus } from '../redux/slices/membersSlice';
 import ReportBarChart from '../components/ReportBarChart';
 import CalendarSection from '../components/CalenderSection';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 function Dashboard() {
   const role = useSelector(state => state.role.currentRole);
@@ -97,10 +99,9 @@ function Dashboard() {
         <aside className="w-64 bg-indigo-900 text-white p-6 dark:bg-gray-800">
           <div>
             <h2 className="text-xl font-bold mb-6">Pulse Dashboard</h2>
-            <label className="flex items-center gap-1 text-sm cursor-pointer mb-6">
-              <input type="checkbox" checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-              Enable Dark Mode
-            </label>
+             <button onClick={() => setDarkMode(!darkMode)} className='cursor-pointer pb-4'>
+                Mode {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
+             </button>
             <ul className="space-y-4 text-sm">
               <li onClick={() => scrollTo(dashboardRef)} className="cursor-pointer hover:text-indigo-300">Dashboard</li>
               <li onClick={() => scrollTo(teamRef)} className="cursor-pointer hover:text-indigo-300">Team</li>
@@ -179,7 +180,7 @@ function Dashboard() {
                         <div>
                         <label className="text-sm mr-2">Filter by Status:</label>
                         <select
-                            className="p-1 rounded border"
+                            className="p-1 rounded border dark:bg-gray-700"
                             onChange={(e) => setFilterStatus(e.target.value)}
                         >
                             <option value="">All</option>
@@ -190,9 +191,9 @@ function Dashboard() {
                         </select>
                         </div>
                         <div>
-                        <label className="text-sm mr-2">Sort by Active Tasks:</label>
+                        <label className="text-sm mr-2 ">Sort by Active Tasks:</label>
                         <select
-                            className="p-1 rounded border"
+                            className="p-1 rounded border dark:bg-gray-700"
                             onChange={(e) => setSortOrder(e.target.value)}
                         >
                             <option value="none">None</option>

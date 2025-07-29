@@ -12,7 +12,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     members: membersReducer,
-    role: roleReducer,    
+    role: roleReducer,
 });
 
 const perReducer = persistReducer(persistConfig, rootReducer);

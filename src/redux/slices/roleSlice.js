@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const roleSlice = createSlice({
     name: 'role',
     initialState: {
-        currentRole: 'member',
-        currentUser: 'Tushar'
+        currentRole: '',
+        currentUser: ''
     },
     reducers:{
         switchRole: (state, action) => {

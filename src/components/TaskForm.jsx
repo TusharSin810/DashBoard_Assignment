@@ -1,11 +1,21 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { assignTask } from '../redux/slices/membersSlice';
+import {
+  Box,
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
+} from '@mui/material';
 
 function TaskForm({ members }) {
   const [title, setTitle] = useState('');
   const [dueDate, setDueDate] = useState('');
-  const [selected, setSelected] = useState(members[0]?.name);
+  const [selected, setSelected] = useState(members[0]?.name || '');
   const dispatch = useDispatch();
 
   const submit = () => {
@@ -19,28 +29,64 @@ function TaskForm({ members }) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 p-4 rounded shadow">
-      <h3 className="font-semibold mb-2">Assign Task</h3>
-      <select value={selected} onChange={(e) => setSelected(e.target.value)} className="mb-2 w-full p-2 border">
-        {members.map((m) => (
-          <option key={m.id} value={m.name}>{m.name}</option>
-        ))}
-      </select>
-      <input
-        type="text"
-        placeholder="Task Title"
+    <Box
+      sx={{
+        backgroundColor: 'background.paper',
+        p: 3,
+        borderRadius: 2,
+        boxShadow: 3,
+        maxWidth: 4/5,
+        mx: 'auto',
+      }}
+    >
+      <Typography variant="h6" fontWeight="bold" mb={2} color='black'>
+        Assign Task
+      </Typography>
+
+      <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+        <InputLabel id="select-member-label">Select Member</InputLabel>
+        <Select
+          labelId="select-member-label"
+          value={selected}
+          label="Select Member"
+          onChange={(e) => setSelected(e.target.value)}
+        >
+          {members.map((m) => (
+            <MenuItem key={m.id} value={m.name}>
+              {m.name}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+
+      <TextField
+        fullWidth
+        size="small"
+        label="Task Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className="mb-2 w-full p-2 border"
+        sx={{ mb: 2 }}
       />
-      <input
+
+      <TextField
+        fullWidth
+        size="small"
+        label="Due Date"
         type="date"
         value={dueDate}
         onChange={(e) => setDueDate(e.target.value)}
-        className="mb-2 w-full p-2 border"
+        sx={{ mb: 2 }}
+        slotProps={{
+        inputLabel: {
+          shrink: true,
+        },
+         }}
       />
-      <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={submit}>Assign</button>
-    </div>
+
+      <Button variant="contained" color="success" fullWidth onClick={submit}>
+        Assign
+      </Button>
+    </Box>
   );
 }
 
