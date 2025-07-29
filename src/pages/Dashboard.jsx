@@ -7,7 +7,6 @@ import TaskForm from '../components/TaskForm';
 import TaskList from '../components/TaskList';
 import StatusSelector from '../components/StatusSelector';
 import { updateStatus } from '../redux/slices/membersSlice';
-import EmployeeTasksReport from '../components/EmployeeTasksReport';
 import ReportBarChart from '../components/ReportBarChart';
 import CalendarSection from '../components/CalenderSection';
 

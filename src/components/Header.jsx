@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { switchRole, setUser } from "../redux/slices/roleSlice";
@@ -34,7 +34,7 @@ function Header() {
       setIsModalOpen(false);
     }
   };
-
+  
   return (
     <div className="flex flex-col sm:flex-row justify-between items-center dark:bg-gray-800 bg-white p-4 rounded shadow gap-4 relative">
       <div className="flex flex-col sm:flex-row items-center gap-2">
