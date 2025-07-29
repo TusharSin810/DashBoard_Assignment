@@ -7,6 +7,9 @@ import TaskForm from '../components/TaskForm';
 import TaskList from '../components/TaskList';
 import StatusSelector from '../components/StatusSelector';
 import { updateStatus } from '../redux/slices/membersSlice';
+import EmployeeTasksReport from '../components/EmployeeTasksReport';
+import ReportBarChart from '../components/ReportBarChart';
+import CalendarSection from '../components/CalenderSection';
 
 function Dashboard() {
   const role = useSelector(state => state.role.currentRole);
@@ -225,12 +228,12 @@ function Dashboard() {
 
         <section ref={reportsRef}>
             <h2 className="text-xl font-bold mb-2">Reports</h2>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded shadow text-gray-400 text-center">Coming Soon</div>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded shadow text-gray-400 text-center"><ReportBarChart /></div>
         </section>
 
         <section ref={calendarRef}>
             <h2 className="text-xl font-bold mb-2">Calendar</h2>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded shadow text-gray-400 text-center">Coming Soon</div>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded shadow text-gray-400 text-center"><CalendarSection selectedUser={currentMember} /></div>
         </section>
     </main>
     </div>

@@ -20,9 +20,9 @@ const membersSlice = createSlice({
             if (member) member.status = action.payload.status;
         },
         assignTask: (state, action) => {
-            const { memberName, task } = action.payload;
+            const { memberName, task} = action.payload;
             const member = state.find((m) => m.name === memberName);
-            if (member) member.tasks.push({ ...task, id: nanoid(), progress: 0 });
+            if (member) member.tasks.push({ ...task, id: nanoid(), progress: 0});
         },
         updateProgress: (state, action) => {
             const { memberName, taskId, progress } = action.payload;
