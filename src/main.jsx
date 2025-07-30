@@ -6,9 +6,10 @@ import { Provider } from 'react-redux'
 import { persistor, store } from './redux/store.js'
 import { PersistGate } from 'redux-persist/integration/react'
 
-if (import.meta.env.DEV) {
+{/*if (import.meta.env.DEV) {
   persistor.purge();
 }
+*/} // To Purge Redux Persistence in Dev Env
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

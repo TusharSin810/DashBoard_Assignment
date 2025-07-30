@@ -19,7 +19,7 @@ function Dashboard() {
   const members = useSelector(state => state.members);
   const user = useSelector(state => state.role.currentUser);
   const dispatch = useDispatch();
-  const INACTIVITY_LIMIT = 5*1000;
+  const INACTIVITY_LIMIT = 60*1000;
   let activityTimer;
   
   const [darkMode, setDarkMode] = useState(false);
