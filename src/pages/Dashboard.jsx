@@ -12,6 +12,7 @@ import CalendarSection from '../components/CalenderSection';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { BackgroundBeams } from '../components/ui/background-beams';
+import MemberCard from '../components/MemberCard';
 
 function Dashboard() {
   const role = useSelector(state => state.role.currentRole);
@@ -220,7 +221,7 @@ function Dashboard() {
                         <div>
                         <label className="text-sm mr-2">Filter by Status:</label>
                         <select
-                            className="p-1 rounded border dark:bg-gray-700"
+                            className="p-1 rounded border dark:bg-gray-700 cursor-pointer"
                             onChange={(e) => setFilterStatus(e.target.value)}
                         >
                             <option value="">All</option>
@@ -233,7 +234,7 @@ function Dashboard() {
                         <div>
                         <label className="text-sm mr-2 ">Sort by Active Tasks:</label>
                         <select
-                            className="p-1 rounded border dark:bg-gray-700"
+                            className="p-1 rounded border dark:bg-gray-700 cursor-pointer"
                             onChange={(e) => setSortOrder(e.target.value)}
                         >
                             <option value="none">None</option>
@@ -242,18 +243,10 @@ function Dashboard() {
                         </select>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {filteredAndSortedMembers.map((m) => {
-                        const activeTasks = (m.tasks || []).filter(t => t.progress < 100);
-                        return (
-                            <div key={m.id} className="bg-white dark:bg-gray-800 p-4 rounded shadow">
-                            <h4 className="text-lg font-bold">{m.name}</h4>
-                            <p className="text-sm mt-1">Status: <span className="font-medium">{m.status}</span></p>
-                            <p className="text-sm">Total Tasks: {m.tasks?.length || 0}</p>
-                            <p className="text-sm">Active Tasks: {activeTasks.length}</p>
-                            </div>
-                        );
-                        })}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                      {filteredAndSortedMembers.map((m) => (
+                        <MemberCard key={m.id} member={m} />
+                      ))}
                     </div>
             </>
             )}
