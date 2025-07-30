@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { startOfMonth, endOfMonth, eachDayOfInterval, format, isSameDay } from 'date-fns';
 
 const CalendarSection = ({ selectedUser }) => {
@@ -34,7 +34,7 @@ const CalendarSection = ({ selectedUser }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 text-black dark:text-white p-6 rounded-xl shadow-xl">
+    <div className="bg-white dark:bg-gray-800 text-black dark:text-white p-6 rounded-xl shadow-2xl">
       <h2 className="text-2xl font-bold mb-4">📅 Team Calendar</h2>
       
       <input

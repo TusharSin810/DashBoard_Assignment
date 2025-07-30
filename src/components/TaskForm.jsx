@@ -34,7 +34,7 @@ function TaskForm({ members }) {
         backgroundColor: 'background.paper',
         p: 3,
         borderRadius: 2,
-        boxShadow: 3,
+        boxShadow: 5,
         maxWidth: 4/5,
         mx: 'auto',
       }}

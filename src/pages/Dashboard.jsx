@@ -11,6 +11,7 @@ import ReportBarChart from '../components/ReportBarChart';
 import CalendarSection from '../components/CalenderSection';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { BackgroundBeams } from '../components/ui/background-beams';
 
 function Dashboard() {
   const role = useSelector(state => state.role.currentRole);
@@ -95,9 +96,10 @@ function Dashboard() {
 
   return (
     <div className={`${darkMode ? 'dark' : ''}`}>
-      <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white transition-all">
-        <aside className="w-64 bg-indigo-900 text-white p-6 dark:text-black dark:bg-indigo-100 flex flex-col justify-between shadow-lg">
-          <div>
+      <BackgroundBeams />
+      <div className="flex min-h-screen bg-indigo-100 dark:bg-gray-900 dark:text-white transition-all">
+        <aside className="w-64 bg-indigo-900 text-white p-6 dark:text-black dark:bg-indigo-200 flex flex-col justify-between shadow-lg">
+          <div className='z-10'>
             <h2
               className="text-3xl sm:text-4xl md:text-4xl font-extrabold mb-8 tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-500 to-pink-600 dark:to-purple-900 drop-shadow-lg animate-fade-in"
             >
@@ -150,7 +152,7 @@ function Dashboard() {
           </footer>
         </aside>
 
-        <main className="flex-1 p-6 overflow-y-auto space-y-10">
+        <main className="flex-1 p-6 overflow-y-auto space-y-10 z-10">
           <Header />
           <section ref={dashboardRef}>
             <h1 className="text-2xl font-bold mb-4">Overview</h1>

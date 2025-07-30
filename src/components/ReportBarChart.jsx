@@ -75,7 +75,7 @@ function ReportBarChart() {
 
   if (labels.length === 0) {
     return (
-      <div className="p-6 bg-white dark:bg-gray-800 rounded shadow">
+      <div className="p-6 bg-white dark:bg-gray-800 rounded shadow-2xl">
         <p className="text-center text-gray-500 dark:text-gray-400">
           No employees to report on.
         </p>
@@ -84,7 +84,7 @@ function ReportBarChart() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md">
+    <div className="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-700 rounded-lg shadow-2xl">
       <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
         Employee Task Load
       </h2>
