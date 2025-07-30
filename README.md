@@ -3,6 +3,7 @@
 A real-time, responsive team management dashboard built with React and Redux. Team Pulse allows leads to track team members' task progress, status, and productivity using clean visuals and interactive UI components.
 
 ---
+[[Watch Demo video]](https://drive.google.com/file/d/1LfkwgGI-43Vm5fNml5SJD7HEihukAbwF/view?usp=sharing)
 
 ## 🔧 Features
 
