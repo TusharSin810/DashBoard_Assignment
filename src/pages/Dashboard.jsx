@@ -259,10 +259,14 @@ function Dashboard() {
             )}
         </section>
 
-        <section ref={reportsRef}>
+        {role === 'lead' && (
+          <section ref={reportsRef}>
             <h2 className="text-xl font-bold mb-2">Reports</h2>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded shadow text-gray-400 text-center"><ReportBarChart /></div>
-        </section>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded shadow text-gray-400 text-center">
+              <ReportBarChart />
+            </div>
+          </section>
+        )}
 
         <section ref={calendarRef}>
             <h2 className="text-xl font-bold mb-2">Calendar</h2>
